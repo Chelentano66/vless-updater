@@ -1,0 +1,600 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: debug
+ipv6: false
+global-ua: Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15
+  (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+fingerprint: ios
+dns:
+  enable: true
+  listen: 0.0.0.0:7874
+  ipv6: false
+  auto-fallback: true
+  cache:
+    enable: true
+    size: 10000
+    ttl: 7200
+  default-nameserver:
+  - 1.0.0.1
+  - 9.9.9.9
+  - 208.67.222.222
+  - 94.140.14.14
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.apple.com
+  - time.apple.com
+  - 192.168.*.*
+  - 10.*.*.*
+  - 127.0.0.1
+  - localhost
+  - '*.yandex.*'
+  - '*.ya.ru'
+  - '*.vk.com'
+  - '*.sberbank.ru'
+  - '*.tbank.ru'
+  - '*.alfabank.ru'
+  - '*.vtb.ru'
+  - '*.psb.ru'
+  - '*.gov.ru'
+  - '*.mail.ru'
+  - '*.ok.ru'
+  - gosuslugi.ru
+  - '*.rosreestr.ru'
+  - '*.minfin.ru'
+  - '*.rbc.ru'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
+  fallback:
+  - https://149.112.112.112/dns-query#dns.quad9.net
+  - https://208.67.222.222/dns-query
+  - https://dns.adguard.com/dns-query#adguard
+  - https://cloudflare-dns.com/dns-query#MAIN
+  - https://dns.quad9.net/dns-query#MAIN
+  fallback-filter:
+    geoip: false
+    ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 100.64.0.0/10
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+  proxy-server-nameserver:
+  - https://security.cloudflare-dns.com/dns-query
+  - https://dns10.quad9.net/dns-query
+profile:
+  store-selected: true
+  store-fake-ip: true
+  tracing: false
+routing-mark: 2
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - +.lan
+  - +.local
+  - +.push.apple.com
+  - +.apple.com
+proxies:
+- name: NL / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: nl-globalcdn1.xeovo.org
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: nl-globalcdn1.xeovo.org
+- name: NL / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: nl-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: nl-global2.xeovo.net
+- name: NL / VLESS (WS+TLS, for Xray)-3
+  type: vless
+  server: nl-global0.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: nl-global0.xeovo.net
+- name: BR / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: br-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: br-global1.xeovo.net
+- name: AL / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: al-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: al-global1.xeovo.net
+- name: LT / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: lt-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lt-global1.xeovo.net
+- name: BG / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: bg-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: bg-global1.xeovo.net
+- name: MD / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: md-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: md-global1.xeovo.net
+- name: JP-CN / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: jp-cn-cdn3.custom.li
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-cn-cdn3.custom.li
+- name: JP-CN / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: jp-cn-cdn2.custom.li
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-cn-cdn2.custom.li
+- name: SG-CN / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: sg-cn-cdn1.custom.li
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: sg-cn-cdn1.custom.li
+- name: SE / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: se-globalcdn1.xeovo.org
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: se-globalcdn1.xeovo.org
+- name: SE / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: se-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: se-global1.xeovo.net
+- name: US-DAL / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: us-dal-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-dal-global1.xeovo.net
+- name: DE / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: de-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: de-global1.xeovo.net
+- name: UA / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: ua-globalcdn1.xeovo.org
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ua-globalcdn1.xeovo.org
+- name: CH / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: ch-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ch-global2.xeovo.net
+- name: CH / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: ch-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ch-global1.xeovo.net
+- name: NO / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: no-global0.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: no-global0.xeovo.net
+- name: NO / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: no-45a81d58.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: no-45a81d58.xeovo.net
+- name: RO / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: ro-globalcdn1.xeovo.org
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ro-globalcdn1.xeovo.org
+- name: CA / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: ca-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ca-global1.xeovo.net
+- name: KR-CN / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: kr-cn-cdn2.custom.li
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: kr-cn-cdn2.custom.li
+- name: KR-CN / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: kr-cn-cdn1.custom.li
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: kr-cn-cdn1.custom.li
+- name: PL / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: pl-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: pl-global1.xeovo.net
+- name: US-NYC / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: us-nyc-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-nyc-global2.xeovo.net
+- name: US-NYC / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: us-nyc-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-nyc-global1.xeovo.net
+- name: UK / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: uk-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: uk-global2.xeovo.net
+- name: FI / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: fi-global4.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global4.xeovo.net
+- name: FI / VLESS (WS+TLS, for Xray)-2
+  type: vless
+  server: fi-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global2.xeovo.net
+- name: FI / VLESS (WS+TLS, for Xray)-3
+  type: vless
+  server: fi-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global1.xeovo.net
+- name: JP / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: jp-global2.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-global2.xeovo.net
+- name: LV / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: lv-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lv-global1.xeovo.net
+- name: LU / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: lu-3080cc72.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lu-3080cc72.xeovo.net
+- name: US-LV / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: us-lv-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-lv-global1.xeovo.net
+- name: FR / VLESS (WS+TLS, for Xray)
+  type: vless
+  server: fr-global1.xeovo.net
+  port: 443
+  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
+  tls: true
+  network: ws
+  udp: true
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fr-global1.xeovo.net
+proxy-groups:
+- name: MAIN
+  type: url-test
+  proxies:
+  - NL / VLESS (WS+TLS, for Xray)
+  - NL / VLESS (WS+TLS, for Xray)-2
+  - NL / VLESS (WS+TLS, for Xray)-3
+  - BR / VLESS (WS+TLS, for Xray)
+  - AL / VLESS (WS+TLS, for Xray)
+  - LT / VLESS (WS+TLS, for Xray)
+  - BG / VLESS (WS+TLS, for Xray)
+  - MD / VLESS (WS+TLS, for Xray)
+  - JP-CN / VLESS (WS+TLS, for Xray)
+  - JP-CN / VLESS (WS+TLS, for Xray)-2
+  - SG-CN / VLESS (WS+TLS, for Xray)
+  - SE / VLESS (WS+TLS, for Xray)
+  - SE / VLESS (WS+TLS, for Xray)-2
+  - US-DAL / VLESS (WS+TLS, for Xray)
+  - DE / VLESS (WS+TLS, for Xray)
+  - UA / VLESS (WS+TLS, for Xray)
+  - CH / VLESS (WS+TLS, for Xray)
+  - CH / VLESS (WS+TLS, for Xray)-2
+  - NO / VLESS (WS+TLS, for Xray)
+  - NO / VLESS (WS+TLS, for Xray)-2
+  - RO / VLESS (WS+TLS, for Xray)
+  - CA / VLESS (WS+TLS, for Xray)
+  - KR-CN / VLESS (WS+TLS, for Xray)
+  - KR-CN / VLESS (WS+TLS, for Xray)-2
+  - PL / VLESS (WS+TLS, for Xray)
+  - US-NYC / VLESS (WS+TLS, for Xray)
+  - US-NYC / VLESS (WS+TLS, for Xray)-2
+  - UK / VLESS (WS+TLS, for Xray)
+  - FI / VLESS (WS+TLS, for Xray)
+  - FI / VLESS (WS+TLS, for Xray)-2
+  - FI / VLESS (WS+TLS, for Xray)-3
+  - JP / VLESS (WS+TLS, for Xray)
+  - LV / VLESS (WS+TLS, for Xray)
+  - LU / VLESS (WS+TLS, for Xray)
+  - US-LV / VLESS (WS+TLS, for Xray)
+  - FR / VLESS (WS+TLS, for Xray)
+  url: https://www.apple.com/library/test/success.html
+  interval: 1200
+rule-providers:
+  IT:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst
+    path: ./ruleset/it.txt
+    interval: 86400
+    force-update: true
+  adblock:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
+    path: ./ruleset/big.mrs
+    interval: 86400
+rules:
+- DOMAIN-SUFFIX,ua,MAIN
+- RULE-SET,IT,MAIN
+- DOMAIN-SUFFIX,githubusercontent.com,MAIN
+- DOMAIN-SUFFIX,github.com,MAIN
+- RULE-SET,adblock,REJECT
+- MATCH,DIRECT
