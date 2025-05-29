@@ -1,5 +1,15 @@
+mixed-port: 7890
 allow-lan: false
+mode: rule
+log-level: debug
+ipv6: false
+global-ua: Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15
+  (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+fingerprint: ios
 dns:
+  enable: true
+  listen: 0.0.0.0:7874
+  ipv6: false
   auto-fallback: true
   cache:
     enable: true
@@ -10,8 +20,8 @@ dns:
   - 9.9.9.9
   - 208.67.222.222
   - 94.140.14.14
-  enable: true
   enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '*.lan'
   - '*.local'
@@ -38,7 +48,9 @@ dns:
   - '*.rbc.ru'
   - +.msftconnecttest.com
   - +.msftncsi.com
-  fake-ip-range: 198.18.0.1/16
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
   fallback:
   - https://149.112.112.112/dns-query#dns.quad9.net
   - https://208.67.222.222/dns-query
@@ -62,574 +74,82 @@ dns:
     - 203.0.113.0/24
     - 224.0.0.0/4
     - 240.0.0.0/4
-  ipv6: false
-  listen: 0.0.0.0:7874
-  nameserver:
-  - https://1.1.1.1/dns-query
-  - https://9.9.9.9/dns-query
   proxy-server-nameserver:
   - https://security.cloudflare-dns.com/dns-query
   - https://dns10.quad9.net/dns-query
-fingerprint: ios
-global-ua: Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15
-  (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-ipv6: false
-log-level: debug
-mixed-port: 7890
-mode: rule
 profile:
-  store-fake-ip: true
   store-selected: true
+  store-fake-ip: true
   tracing: false
-proxies:
-- client-fingerprint: chrome
-  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: nl-globalcdn1.xeovo.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: nl-globalcdn1.xeovo.org
-    path: /potosi
-- client-fingerprint: chrome
-  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: nl-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: nl-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: nl-global0.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: nl-global0.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: br-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: br-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: al-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: al-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: lt-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: lt-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: bg-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: bg-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: md-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: md-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: jp-cn-cdn3.custom.li
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: jp-cn-cdn3.custom.li
-    path: /potosi
-- client-fingerprint: chrome
-  name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: jp-cn-cdn2.custom.li
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: jp-cn-cdn2.custom.li
-    path: /potosi
-- client-fingerprint: chrome
-  name: SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: sg-cn-cdn1.custom.li
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: sg-cn-cdn1.custom.li
-    path: /potosi
-- client-fingerprint: chrome
-  name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: se-globalcdn1.xeovo.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: se-globalcdn1.xeovo.org
-    path: /potosi
-- client-fingerprint: chrome
-  name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: se-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: se-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: us-dal-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: us-dal-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: de-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: de-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: ua-globalcdn1.xeovo.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: ua-globalcdn1.xeovo.org
-    path: /potosi
-- client-fingerprint: chrome
-  name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: ch-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: ch-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: ch-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: ch-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: no-global0.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: no-global0.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: no-45a81d58.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: no-45a81d58.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: ro-globalcdn1.xeovo.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: ro-globalcdn1.xeovo.org
-    path: /potosi
-- client-fingerprint: chrome
-  name: CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: ca-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: ca-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: kr-cn-cdn2.custom.li
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: kr-cn-cdn2.custom.li
-    path: /potosi
-- client-fingerprint: chrome
-  name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: kr-cn-cdn1.custom.li
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: kr-cn-cdn1.custom.li
-    path: /potosi
-- client-fingerprint: chrome
-  name: PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: pl-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: pl-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: us-nyc-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: us-nyc-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: us-nyc-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: us-nyc-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: uk-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: uk-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: fi-global4.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: fi-global4.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: fi-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: fi-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: fi-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: fi-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: jp-global2.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: jp-global2.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: lv-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: lv-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: lu-3080cc72.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: lu-3080cc72.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: us-lv-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: us-lv-global1.xeovo.net
-    path: /potosi
-- client-fingerprint: chrome
-  name: FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  network: ws
-  port: 443
-  server: fr-global1.xeovo.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
-  ws-opts:
-    headers:
-      Host: fr-global1.xeovo.net
-    path: /potosi
-proxy-groups:
-- interval: 1200
-  name: MAIN
-  proxies:
-  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  - FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
-  type: url-test
-  url: http://www.gstatic.com/generate_204
 routing-mark: 2
-rule-providers:
-  IT:
-    behavior: classical
-    force-update: true
-    format: text
-    interval: 86400
-    path: ./ruleset/it.txt
-    type: http
-    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst
-  adblock:
-    behavior: domain
-    format: mrs
-    interval: 86400
-    path: ./ruleset/big.mrs
-    type: http
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
-rules:
-- DOMAIN-SUFFIX,ua,MAIN
-- RULE-SET,IT,MAIN
-- DOMAIN-SUFFIX,antifilter.download,MAIN
-- RULE-SET,adblock,REJECT
-- MATCH,DIRECT
 sniffer:
   enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
   skip-domain:
   - Mijia Cloud
   - +.lan
   - +.local
   - +.push.apple.com
   - +.apple.com
-  sniff:
-    HTTP:
-      override-destination: true
-      ports:
-      - 80
-      - 8080-8880
-    TLS:
-      ports:
-      - 443
-      - 8443
+proxies:
+- name: US-VLESS
+  type: vless
+  server: us.example.com
+  port: 443
+  uuid: your-uuid-here
+  tls: true
+  network: ws
+  ws-opts:
+    path: /websocket
+    headers:
+      Host: us.example.com
+- name: DE-VLESS
+  type: vless
+  server: de.example.com
+  port: 443
+  uuid: your-uuid-here
+  tls: true
+  network: ws
+  ws-opts:
+    path: /path
+    headers:
+      Host: de.example.com
+proxy-groups:
+- name: MAIN
+  type: url-test
+  proxies:
+  - US-VLESS
+  - DE-VLESS
+  url: http://www.gstatic.com/generate_204
+  interval: 1200
+rule-providers:
+  IT:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst
+    path: ./ruleset/it.txt
+    interval: 86400
+    force-update: true
+  adblock:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
+    path: ./ruleset/big.mrs
+    interval: 86400
+rules:
+- DOMAIN-SUFFIX,ua,MAIN
+- RULE-SET,IT,MAIN
+- DOMAIN-SUFFIX,antifilter.download,MAIN
+- RULE-SET,adblock,REJECT
+- MATCH,DIRECT
