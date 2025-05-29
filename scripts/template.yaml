@@ -103,7 +103,7 @@ proxy-groups:
   - name: MAIN
     type: url-test
     proxies: []  # сюда — имена прокси (name), соответствующие из списка выше
-    url: "http://www.gstatic.com/generate_204"
+    url: "https://www.apple.com/library/test/success.html"
     interval: 1200
 
 rule-providers:
