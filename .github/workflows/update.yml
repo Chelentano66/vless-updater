@@ -24,7 +24,7 @@ jobs:
           pip install pyyaml requests
 
       - name: Run config generator
-        run: python scripts/generate.py
+        run: python scripts/parse_vless.py
 
       - name: Configure Git
         run: |
