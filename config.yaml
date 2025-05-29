@@ -101,34 +101,514 @@ sniffer:
   - +.push.apple.com
   - +.apple.com
 proxies:
-- name: US-VLESS
+- name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   type: vless
-  server: us.example.com
+  server: nl-globalcdn1.xeovo.org
   port: 443
-  uuid: your-uuid-here
-  tls: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
   network: ws
+  security: tls
   ws-opts:
-    path: /websocket
+    path: /potosi
     headers:
-      Host: us.example.com
-- name: DE-VLESS
+      Host: nl-globalcdn1.xeovo.org
+- name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   type: vless
-  server: de.example.com
+  server: nl-global2.xeovo.net
   port: 443
-  uuid: your-uuid-here
-  tls: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
   network: ws
+  security: tls
   ws-opts:
-    path: /path
+    path: /potosi
     headers:
-      Host: de.example.com
+      Host: nl-global2.xeovo.net
+- name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: nl-global0.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: nl-global0.xeovo.net
+- name: BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: br-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: br-global1.xeovo.net
+- name: AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: al-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: al-global1.xeovo.net
+- name: LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: lt-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lt-global1.xeovo.net
+- name: BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: bg-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: bg-global1.xeovo.net
+- name: MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: md-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: md-global1.xeovo.net
+- name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: jp-cn-cdn3.custom.li
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-cn-cdn3.custom.li
+- name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: jp-cn-cdn2.custom.li
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-cn-cdn2.custom.li
+- name: SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: sg-cn-cdn1.custom.li
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: sg-cn-cdn1.custom.li
+- name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: se-globalcdn1.xeovo.org
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: se-globalcdn1.xeovo.org
+- name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: se-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: se-global1.xeovo.net
+- name: US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: us-dal-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-dal-global1.xeovo.net
+- name: DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: de-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: de-global1.xeovo.net
+- name: UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: ua-globalcdn1.xeovo.org
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ua-globalcdn1.xeovo.org
+- name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: ch-global2.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ch-global2.xeovo.net
+- name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: ch-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ch-global1.xeovo.net
+- name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: no-global0.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: no-global0.xeovo.net
+- name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: no-45a81d58.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: no-45a81d58.xeovo.net
+- name: RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: ro-globalcdn1.xeovo.org
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ro-globalcdn1.xeovo.org
+- name: CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: ca-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: ca-global1.xeovo.net
+- name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: kr-cn-cdn2.custom.li
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: kr-cn-cdn2.custom.li
+- name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: kr-cn-cdn1.custom.li
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: kr-cn-cdn1.custom.li
+- name: PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: pl-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: pl-global1.xeovo.net
+- name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: us-nyc-global2.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-nyc-global2.xeovo.net
+- name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: us-nyc-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-nyc-global1.xeovo.net
+- name: UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: uk-global2.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: uk-global2.xeovo.net
+- name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: fi-global4.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global4.xeovo.net
+- name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: fi-global2.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global2.xeovo.net
+- name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: fi-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fi-global1.xeovo.net
+- name: JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: jp-global2.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: jp-global2.xeovo.net
+- name: LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: lv-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lv-global1.xeovo.net
+- name: LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: lu-3080cc72.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: lu-3080cc72.xeovo.net
+- name: US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: us-lv-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: us-lv-global1.xeovo.net
+- name: FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: vless
+  server: fr-global1.xeovo.net
+  port: 443
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
+  alterId: 0
+  encryption: none
+  network: ws
+  security: tls
+  ws-opts:
+    path: /potosi
+    headers:
+      Host: fr-global1.xeovo.net
 proxy-groups:
 - name: MAIN
   type: url-test
   proxies:
-  - US-VLESS
-  - DE-VLESS
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   url: http://www.gstatic.com/generate_204
   interval: 1200
 rule-providers:
