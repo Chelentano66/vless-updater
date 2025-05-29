@@ -45,7 +45,8 @@ def parse_vless(line):
 def main():
     print("🔄 Скачиваем подписку...")
     response = requests.get(SUBSCRIPTION_URL)
-    data = base64.b64decode(response.text).decode("utf-8")
+    data = base64.b64decode(response.content)
+    text = data.decode("utf-8")
 
     lines = data.strip().splitlines()
     proxies = []
