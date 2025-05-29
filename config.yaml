@@ -1,398 +1,635 @@
+allow-lan: false
+dns:
+  auto-fallback: true
+  cache:
+    enable: true
+    size: 10000
+    ttl: 7200
+  default-nameserver:
+  - 1.0.0.1
+  - 9.9.9.9
+  - 208.67.222.222
+  - 94.140.14.14
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.apple.com
+  - time.apple.com
+  - 192.168.*.*
+  - 10.*.*.*
+  - 127.0.0.1
+  - localhost
+  - '*.yandex.*'
+  - '*.ya.ru'
+  - '*.vk.com'
+  - '*.sberbank.ru'
+  - '*.tbank.ru'
+  - '*.alfabank.ru'
+  - '*.vtb.ru'
+  - '*.psb.ru'
+  - '*.gov.ru'
+  - '*.mail.ru'
+  - '*.ok.ru'
+  - gosuslugi.ru
+  - '*.rosreestr.ru'
+  - '*.minfin.ru'
+  - '*.rbc.ru'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  fake-ip-range: 198.18.0.1/16
+  fallback:
+  - https://149.112.112.112/dns-query#dns.quad9.net
+  - https://208.67.222.222/dns-query
+  - https://dns.adguard.com/dns-query#adguard
+  - https://cloudflare-dns.com/dns-query#MAIN
+  - https://dns.quad9.net/dns-query#MAIN
+  fallback-filter:
+    geoip: false
+    ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 100.64.0.0/10
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+  ipv6: false
+  listen: 0.0.0.0:7874
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
+  proxy-server-nameserver:
+  - https://security.cloudflare-dns.com/dns-query
+  - https://dns10.quad9.net/dns-query
+fingerprint: ios
+global-ua: Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15
+  (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+ipv6: false
+log-level: debug
 mixed-port: 7890
+mode: rule
+profile:
+  store-fake-ip: true
+  store-selected: true
+  tracing: false
 proxies:
-- name: VLESS Proxy
+- client-fingerprint: chrome
+  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: nl-globalcdn1.xeovo.org
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: nl-globalcdn1.xeovo.org
+    path: /potosi
+- client-fingerprint: chrome
+  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: nl-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: nl-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: nl-global0.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: nl-global0.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: br-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: br-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: al-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: al-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: lt-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: lt-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: bg-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: bg-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: md-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: md-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: jp-cn-cdn3.custom.li
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: jp-cn-cdn3.custom.li
+    path: /potosi
+- client-fingerprint: chrome
+  name: JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: jp-cn-cdn2.custom.li
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: jp-cn-cdn2.custom.li
+    path: /potosi
+- client-fingerprint: chrome
+  name: SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: sg-cn-cdn1.custom.li
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: sg-cn-cdn1.custom.li
+    path: /potosi
+- client-fingerprint: chrome
+  name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: se-globalcdn1.xeovo.org
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: se-globalcdn1.xeovo.org
+    path: /potosi
+- client-fingerprint: chrome
+  name: SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: se-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: se-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: us-dal-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: us-dal-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: de-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: de-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: ua-globalcdn1.xeovo.org
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: ua-globalcdn1.xeovo.org
+    path: /potosi
+- client-fingerprint: chrome
+  name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: ch-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: ch-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: ch-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: ch-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: no-global0.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: no-global0.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: no-45a81d58.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: no-45a81d58.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: ro-globalcdn1.xeovo.org
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: ro-globalcdn1.xeovo.org
+    path: /potosi
+- client-fingerprint: chrome
+  name: CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: ca-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: ca-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: kr-cn-cdn2.custom.li
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: kr-cn-cdn2.custom.li
+    path: /potosi
+- client-fingerprint: chrome
+  name: KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: kr-cn-cdn1.custom.li
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: kr-cn-cdn1.custom.li
+    path: /potosi
+- client-fingerprint: chrome
+  name: PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: pl-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: pl-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: us-nyc-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: us-nyc-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: us-nyc-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: us-nyc-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: uk-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: uk-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: fi-global4.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: fi-global4.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: fi-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: fi-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: fi-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: fi-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: jp-global2.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: jp-global2.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: lv-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: lv-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: lu-3080cc72.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: lu-3080cc72.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: us-lv-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
-- name: VLESS Proxy
+      Host: us-lv-global1.xeovo.net
+    path: /potosi
+- client-fingerprint: chrome
+  name: FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
   network: ws
   port: 443
-  server: example.com
+  server: fr-global1.xeovo.net
   tls: true
   type: vless
-  uuid: uuid-from-link
+  udp: true
+  uuid: 913d91d6-245e-44c1-bd10-fe378302eefc
   ws-opts:
     headers:
-      Host: example.com
-    path: /
+      Host: fr-global1.xeovo.net
+    path: /potosi
+proxy-groups:
+- interval: 1200
+  name: MAIN
+  proxies:
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - BR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - AL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LT%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - BG%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - MD%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SG-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - SE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-DAL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - DE%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - UA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CH%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - NO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - RO%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - CA%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - KR-CN%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - PL%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-NYC%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - UK%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FI%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - JP%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - LU%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - US-LV%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  - FR%20/%20VLESS%20%28WS%2BTLS%2C%20for%20Xray%29
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+routing-mark: 2
+rule-providers:
+  IT:
+    behavior: classical
+    force-update: true
+    format: text
+    interval: 86400
+    path: ./ruleset/it.txt
+    type: http
+    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst
+  adblock:
+    behavior: domain
+    format: mrs
+    interval: 86400
+    path: ./ruleset/big.mrs
+    type: http
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
+rules:
+- DOMAIN-SUFFIX,ua,MAIN
+- RULE-SET,IT,MAIN
+- DOMAIN-SUFFIX,githubusercontent.com,MAIN
+- RULE-SET,adblock,REJECT
+- MATCH,DIRECT
+sniffer:
+  enable: true
+  skip-domain:
+  - Mijia Cloud
+  - +.lan
+  - +.local
+  - +.push.apple.com
+  - +.apple.com
+  sniff:
+    HTTP:
+      override-destination: true
+      ports:
+      - 80
+      - 8080-8880
+    TLS:
+      ports:
+      - 443
+      - 8443
