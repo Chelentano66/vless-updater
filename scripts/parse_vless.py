@@ -1,23 +1,26 @@
 import requests
 import yaml
-from pathlib import Path
-from urllib.parse import urlparse, parse_qs, unquote
+import os
+from urllib.parse import parse_qs, unquote
 
-# Подписки: имя → ссылка
+# 🔧 Настройки
+TEMPLATE_PATH = "scripts/template.yaml"
+OUTPUT_DIR = "output"
+
+# 📦 Список подписок: имя → URL
 subscriptions = {
-    "Sub1": "https://xeovo.com/proxy/pw/MGEpOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/",
-    "Sub2": "https://xeovo.com/proxy/pw/PjYJ4UbUXGS1adWJJJ9tbL3V24eonExf/plain/config/",
-    # Добавляй сколько хочешь
+    "Sub1": "https://xeovo.com/proxy/pw/MGкаOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/",
+    "Sub2": "https://xeovo.com/proxy/pw/PjYJкаXGS1adWJJJ9tbL3V24eonExf/plain/config/",
+    # Добавляй сколько нужно...
 }
 
-TEMPLATE_PATH = "scripts/template.yaml"
-OUTPUT_DIR = Path("output")
-OUTPUT_DIR.mkdir(exist_ok=True)
 
 def parse_vless(url, used_names):
     if not url.startswith("vless://"):
         return None
+
     url_ = url[len("vless://"):]
+
     try:
         user_uuid, rest = url_.split("@", 1)
     except ValueError:
@@ -54,6 +57,8 @@ def parse_vless(url, used_names):
     port = int(port)
 
     query = parse_qs(query_string)
+
+    # Уникальное имя прокси
     base_name = remark or f"{host}:{port}"
     base_name = unquote(base_name)
     name = base_name
@@ -78,53 +83,58 @@ def parse_vless(url, used_names):
         ws_path = query.get("path", [path])[0]
         ws_path = unquote(ws_path)
         ws_host = query.get("host", [""])[0]
-        proxy["ws-opts"] = {"path": ws_path}
+        proxy["ws-opts"] = {
+            "path": ws_path,
+        }
         if ws_host:
             proxy["ws-opts"]["headers"] = {"Host": ws_host}
 
     return proxy
 
 
-def process_subscription(name, url):
-    used_names = set()
-    print(f"🔄 {name}: скачиваем подписку...")
-    response = requests.get(url)
-    response.raise_for_status()
-    decoded = response.text
-
-    lines = decoded.splitlines()
-    proxies = []
-    for line in lines:
-        line = line.strip()
-        if line.startswith("vless://"):
-            proxy = parse_vless(line, used_names)
-            if proxy:
-                proxies.append(proxy)
-
-    print(f"✅ {name}: найдено VLESS — {len(proxies)}")
-
-    with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
-        template = yaml.safe_load(f)
-
-    template["proxies"] = proxies
-    proxy_names = [p["name"] for p in proxies]
-    for group in template.get("proxy-groups", []):
-        if group.get("name") == "MAIN":
-            group["proxies"] = proxy_names
-
-    output_file = OUTPUT_DIR / f"{name}.yaml"
-    with open(output_file, "w", encoding="utf-8") as f:
-        yaml.dump(template, f, allow_unicode=True, sort_keys=False)
-
-    print(f"💾 {name}: конфиг сохранён в {output_file}")
-
-
 def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
     for name, url in subscriptions.items():
+        print(f"\n🔄 Обработка подписки: {name}")
         try:
-            process_subscription(name, url)
+            response = requests.get(url)
+            response.raise_for_status()
         except Exception as e:
-            print(f"❌ Ошибка в {name}: {e}")
+            print(f"❌ Ошибка при скачивании подписки '{name}': {e}")
+            continue
+
+        decoded = response.text
+        used_names = set()
+        proxies = []
+
+        for line in decoded.splitlines():
+            line = line.strip()
+            if line.startswith("vless://"):
+                proxy = parse_vless(line, used_names)
+                if proxy:
+                    proxies.append(proxy)
+
+        print(f"✅ Найдено VLESS-прокси: {len(proxies)}")
+
+        try:
+            with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
+                template = yaml.safe_load(f)
+        except Exception as e:
+            print(f"❌ Ошибка загрузки шаблона: {e}")
+            continue
+
+        template["proxies"] = proxies
+        proxy_names = [p["name"] for p in proxies]
+        for group in template.get("proxy-groups", []):
+            if group.get("name") == "MAIN":
+                group["proxies"] = proxy_names
+
+        output_file = f"{OUTPUT_DIR}/{name}.yaml"
+        with open(output_file, "w", encoding="utf-8") as f:
+            yaml.dump(template, f, allow_unicode=True, sort_keys=False)
+
+        print(f"💾 Сохранено: {output_file}")
 
 
 if __name__ == "__main__":
