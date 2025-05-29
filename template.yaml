@@ -97,12 +97,12 @@ sniffer:
     - "+.push.apple.com"
     - "+.apple.com"
 
-proxies: []
+proxies: []  # сюда вставим список VLESS прокси
 
 proxy-groups:
   - name: MAIN
     type: url-test
-    proxies: []
+    proxies: []  # сюда — имена прокси (name), соответствующие из списка выше
     url: "http://www.gstatic.com/generate_204"
     interval: 1200
 
