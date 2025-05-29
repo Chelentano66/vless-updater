@@ -1,0 +1,398 @@
+mixed-port: 7890
+proxies:
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
+- name: VLESS Proxy
+  network: ws
+  port: 443
+  server: example.com
+  tls: true
+  type: vless
+  uuid: uuid-from-link
+  ws-opts:
+    headers:
+      Host: example.com
+    path: /
