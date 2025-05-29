@@ -25,6 +25,8 @@ def main():
     r.raise_for_status()
     data = r.text
     config = yaml.safe_load(data)
+    print("DEBUG: Тип config =", type(config))
+    print("DEBUG: Содержимое config:\n", config)
     proxies = config.get("proxies", [])
     filtered = []
 
