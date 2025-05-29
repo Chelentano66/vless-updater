@@ -127,6 +127,6 @@ rule-providers:
 rules:
   - DOMAIN-SUFFIX,ua,MAIN
   - RULE-SET,IT,MAIN
-  - DOMAIN-SUFFIX,githubusercontent.com,MAIN 
+  - DOMAIN-SUFFIX,antifilter.download,MAIN
   - RULE-SET,adblock,REJECT
   - MATCH,DIRECT
