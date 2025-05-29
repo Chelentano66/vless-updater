@@ -6,7 +6,7 @@ from urllib.parse import urlparse, parse_qs
 from base64 import urlsafe_b64decode
 
 SUBSCRIPTION_URL = "https://xeovo.com/proxy/pw/MGEpOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/"
-TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), "template.yaml")
+TEMPLATE_PATH = "template.yaml"
 OUTPUT_PATH = "config.yaml"
 
 def parse_vless_url(url):
