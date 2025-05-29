@@ -3,7 +3,7 @@ import requests
 import yaml
 from urllib.parse import urlparse, parse_qs, unquote
 
-SUBSCRIPTION_URL = "ТВОЯ_ССЫЛКА_НА_ПОДПИСКУ"
+SUBSCRIPTION_URL = "https://xeovo.com/proxy/pw/MGEpOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/"
 TEMPLATE_PATH = "scripts/template.yaml"
 OUTPUT_PATH = "output/vless.yaml"
 
