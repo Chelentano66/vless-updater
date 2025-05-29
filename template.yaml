@@ -1,0 +1,132 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: debug
+ipv6: false
+
+global-ua: Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+fingerprint: ios
+
+dns:
+  enable: true
+  listen: 0.0.0.0:7874
+  ipv6: false
+  auto-fallback: true
+  cache:
+    enable: true
+    size: 10000
+    ttl: 7200
+  default-nameserver: ["1.0.0.1", "9.9.9.9", "208.67.222.222", "94.140.14.14"]
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "+.apple.com"
+    - "time.apple.com"
+    - "192.168.*.*"
+    - "10.*.*.*"
+    - "127.0.0.1"
+    - "localhost"
+    - "*.yandex.*"
+    - "*.ya.ru"
+    - "*.vk.com"
+    - "*.sberbank.ru"
+    - "*.tbank.ru"
+    - "*.alfabank.ru"
+    - "*.vtb.ru"
+    - "*.psb.ru"
+    - "*.gov.ru"
+    - "*.mail.ru"
+    - "*.ok.ru"
+    - "gosuslugi.ru"
+    - "*.rosreestr.ru"
+    - "*.minfin.ru"
+    - "*.rbc.ru"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+  nameserver:
+    - "https://1.1.1.1/dns-query"
+    - "https://9.9.9.9/dns-query"
+  fallback:
+    - "https://149.112.112.112/dns-query#dns.quad9.net"
+    - "https://208.67.222.222/dns-query"
+    - "https://dns.adguard.com/dns-query#adguard"
+    - "https://cloudflare-dns.com/dns-query#MAIN"
+    - "https://dns.quad9.net/dns-query#MAIN"
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - "0.0.0.0/8"
+      - "10.0.0.0/8"
+      - "127.0.0.0/8"
+      - "100.64.0.0/10"
+      - "169.254.0.0/16"
+      - "172.16.0.0/12"
+      - "192.0.0.0/24"
+      - "192.0.2.0/24"
+      - "192.168.0.0/16"
+      - "198.18.0.0/15"
+      - "198.51.100.0/24"
+      - "203.0.113.0/24"
+      - "224.0.0.0/4"
+      - "240.0.0.0/4"
+  proxy-server-nameserver:
+    - "https://security.cloudflare-dns.com/dns-query"
+    - "https://dns10.quad9.net/dns-query"
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+  tracing: false
+
+routing-mark: 2
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.lan"
+    - "+.local"
+    - "+.push.apple.com"
+    - "+.apple.com"
+
+proxies: []
+
+proxy-groups:
+  - name: MAIN
+    type: url-test
+    proxies: []
+    url: "http://www.gstatic.com/generate_204"
+    interval: 1200
+
+rule-providers:
+  IT:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst"
+    path: ./ruleset/it.txt
+    interval: 86400
+    force-update: true
+
+  adblock:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs"
+    path: ./ruleset/big.mrs
+    interval: 86400
+
+rules:
+  - DOMAIN-SUFFIX,ua,MAIN
+  - RULE-SET,IT,MAIN
+  - DOMAIN-SUFFIX,githubusercontent.com,MAIN 
+  - RULE-SET,adblock,REJECT
+  - MATCH,DIRECT
