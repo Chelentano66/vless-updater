@@ -11,7 +11,6 @@ OUTPUT_DIR = "output"
 subscriptions = {
     "Sub1": "https://xeovo.com/proxy/pw/MGкаOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/",
     "Sub2": "https://xeovo.com/proxy/pw/PjYJ4UbUXGS1adWJJJ9tbL3V24eonExf/plain/config/",
-    "Sub3": "https://xeovo.com/proxy/pw/PjYJ4UbUXGS1adWJJJ9tbL3V24eonExf/plain/config/",
     # Добавляй сколько нужно...
 }
 
