@@ -1,17 +1,39 @@
 import requests
-import re
 import yaml
+import re
+import os
+from urllib.parse import urlparse, parse_qs
+from base64 import urlsafe_b64decode
 
 SUBSCRIPTION_URL = "https://xeovo.com/proxy/pw/MGEpOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/"
+TEMPLATE_PATH = "template.yaml"
+OUTPUT_PATH = "config.yaml"
 
-def parse_links(text):
-    # Регулярка для всех прокси ссылок
-    pattern = re.compile(r'^(vmess|vless|trojan|ss)://[^\s]+', re.MULTILINE)
-    return pattern.findall(text)
+def parse_vless_url(url):
+    """Парсит vless:// ссылку и возвращает Clash-совместимый словарь."""
+    try:
+        raw = url[8:]  # Убираем 'vless://'
+        userinfo, rest = raw.split('@', 1)
+        uuid = userinfo
+        host, params = rest.split('?', 1) if '?' in rest else (rest, '')
+        address, port = host.split(':')
+        query = parse_qs(params)
 
-def filter_vless(text):
-    # Возвращаем только VLESS ссылки из текста
-    return re.findall(r'^vless://[^\s]+', text, re.MULTILINE)
+        name = query.get('sni', [address])[0]  # или ps, или просто host
+        return {
+            "name": name,
+            "type": "vless",
+            "server": address,
+            "port": int(port),
+            "uuid": uuid,
+            "network": query.get("type", ["ws"])[0],
+            "tls": True,
+            "udp": True,
+            "client-fingerprint": "chrome"
+        }
+    except Exception as e:
+        print(f"❌ Ошибка при парсинге: {url} -> {e}")
+        return None
 
 def main():
     print("🔄 Скачиваем подписку...")
@@ -19,41 +41,27 @@ def main():
     response.raise_for_status()
     text = response.text
 
-    vless_links = filter_vless(text)
-    print(f"Найдено VLESS ссылок: {len(vless_links)}")
+    print("🔍 Фильтруем VLESS ссылки...")
+    vless_urls = [line.strip() for line in text.splitlines() if line.startswith("vless://")]
+    proxies = list(filter(None, [parse_vless_url(url) for url in vless_urls]))
 
-    # Далее преобразуем VLESS ссылки в нужный формат конфига (пример упрощённый)
-    proxies = []
-    for link in vless_links:
-        # Разбор и преобразование ссылки (зависит от формата)
-        # Например, просто кладём в конфиг имя и адрес сервера
-        # Здесь нужно реализовать парсинг параметров ссылки
-        proxies.append({
-            "name": "VLESS Proxy",
-            "type": "vless",
-            "server": "example.com",  # тут нужно брать из ссылки
-            "port": 443,
-            "uuid": "uuid-from-link",
-            "tls": True,
-            "network": "ws",
-            "ws-opts": {
-                "path": "/",
-                "headers": {
-                    "Host": "example.com"
-                }
-            }
-        })
+    print(f"✅ Найдено VLESS прокси: {len(proxies)}")
 
-    config = {
-        "mixed-port": 7890,
-        "proxies": proxies,
-        # остальной конфиг...
-    }
+    print("📄 Загружаем шаблон...")
+    with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
 
-    with open("config.yaml", "w") as f:
-        yaml.dump(config, f)
+    print("🧩 Вставляем прокси в шаблон...")
+    config["proxies"] = proxies
+    for group in config.get("proxy-groups", []):
+        if group.get("name") == "MAIN":
+            group["proxies"] = [p["name"] for p in proxies]
 
-    print("Готово! Конфиг записан в config.yaml")
+    print("💾 Сохраняем в config.yaml...")
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        yaml.dump(config, f, allow_unicode=True)
+
+    print("🎉 Готово! Конфиг сохранён.")
 
 if __name__ == "__main__":
     main()
