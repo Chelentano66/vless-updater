@@ -10,26 +10,31 @@ TEMPLATE_PATH = "template.yaml"
 OUTPUT_PATH = "config.yaml"
 
 def parse_vless_url(url):
-    """Парсит vless:// ссылку и возвращает Clash-совместимый словарь."""
     try:
-        raw = url[8:]  # Убираем 'vless://'
-        userinfo, rest = raw.split('@', 1)
-        uuid = userinfo
-        host, params = rest.split('?', 1) if '?' in rest else (rest, '')
-        address, port = host.split(':')
-        query = parse_qs(params)
+        parsed = urlparse(url)
+        uuid = parsed.username
+        server = parsed.hostname
+        port = int(parsed.port)
+        path = parsed.path
+        query = parse_qs(parsed.query)
+        name = parsed.fragment or server
 
-        name = query.get('sni', [address])[0]  # или ps, или просто host
         return {
             "name": name,
             "type": "vless",
-            "server": address,
-            "port": int(port),
+            "server": server,
+            "port": port,
             "uuid": uuid,
             "network": query.get("type", ["ws"])[0],
             "tls": True,
             "udp": True,
-            "client-fingerprint": "chrome"
+            "client-fingerprint": "chrome",
+            "ws-opts": {
+                "path": path,
+                "headers": {
+                    "Host": query.get("host", [server])[0]
+                }
+            }
         }
     except Exception as e:
         print(f"❌ Ошибка при парсинге: {url} -> {e}")
