@@ -596,6 +596,5 @@ rules:
 - RULE-SET,IT,MAIN
 - DOMAIN-SUFFIX,githubusercontent.com,MAIN
 - DOMAIN-SUFFIX,github.com,MAIN
-- DOMAIN-SUFFIX,xeovo.com,MAIN
 - RULE-SET,adblock,REJECT
 - MATCH,DIRECT
