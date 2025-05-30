@@ -584,11 +584,24 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./rules/reject.txt
     interval: 86400
-script-providers:
-  auto_youtube_skip:
-    type: http
-    url: https://raw.githubusercontent.com/alhacen/auto-skip-youtube-ads.js/main/auto-skip-youtube-ads.js
-    interval: 86400
+script:
+- name: block_youtube_ads
+  type: http-response
+  match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|youtubei\/v1\/player\/ad_break)
+  action: reject
+- name: block_youtube_ads_ytbapi
+  type: http-request
+  match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|ptracking|pagead|ads)
+  action: reject
+rewrite:
+- regex: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|.*ad_break.*)
+  replacement: http://127.0.0.1
+  status: 200
+mitm:
+  hostnames:
+  - '*.youtube.com'
+  - youtubei.googleapis.com
+  - googlevideo.com
 rules:
 - DOMAIN-SUFFIX,ua,MAIN
 - RULE-SET,IT,MAIN
