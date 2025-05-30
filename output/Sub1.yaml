@@ -585,14 +585,14 @@ rule-providers:
     path: ./rules/reject.txt
     interval: 86400
 script:
-- name: block_youtube_ads
-  type: http-response
-  match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|youtubei\/v1\/player\/ad_break)
-  action: reject
-- name: block_youtube_ads_ytbapi
-  type: http-request
-  match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|ptracking|pagead|ads)
-  action: reject
+  block_youtube_ads:
+    type: http-response
+    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|youtubei\/v1\/player\/ad_break)
+    action: reject
+  block_youtube_ads_req:
+    type: http-request
+    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|ptracking|pagead|ads)
+    action: reject
 rewrite:
 - regex: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|.*ad_break.*)
   replacement: http://127.0.0.1
