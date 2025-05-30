@@ -562,45 +562,6 @@ proxy-groups:
   - FR / VLESS (WS+TLS, for Xray)
   url: https://www.apple.com/library/test/success.html
   interval: 1200
-- name: SELECTOR
-  type: select
-  proxies:
-  - MAIN
-  - NL / VLESS (WS+TLS, for Xray)
-  - NL / VLESS (WS+TLS, for Xray)-2
-  - NL / VLESS (WS+TLS, for Xray)-3
-  - BR / VLESS (WS+TLS, for Xray)
-  - AL / VLESS (WS+TLS, for Xray)
-  - LT / VLESS (WS+TLS, for Xray)
-  - BG / VLESS (WS+TLS, for Xray)
-  - MD / VLESS (WS+TLS, for Xray)
-  - JP-CN / VLESS (WS+TLS, for Xray)
-  - JP-CN / VLESS (WS+TLS, for Xray)-2
-  - SG-CN / VLESS (WS+TLS, for Xray)
-  - SE / VLESS (WS+TLS, for Xray)
-  - SE / VLESS (WS+TLS, for Xray)-2
-  - US-DAL / VLESS (WS+TLS, for Xray)
-  - DE / VLESS (WS+TLS, for Xray)
-  - CH / VLESS (WS+TLS, for Xray)
-  - CH / VLESS (WS+TLS, for Xray)-2
-  - NO / VLESS (WS+TLS, for Xray)
-  - NO / VLESS (WS+TLS, for Xray)-2
-  - RO / VLESS (WS+TLS, for Xray)
-  - CA / VLESS (WS+TLS, for Xray)
-  - KR-CN / VLESS (WS+TLS, for Xray)
-  - KR-CN / VLESS (WS+TLS, for Xray)-2
-  - PL / VLESS (WS+TLS, for Xray)
-  - US-NYC / VLESS (WS+TLS, for Xray)
-  - US-NYC / VLESS (WS+TLS, for Xray)-2
-  - UK / VLESS (WS+TLS, for Xray)
-  - FI / VLESS (WS+TLS, for Xray)
-  - FI / VLESS (WS+TLS, for Xray)-2
-  - FI / VLESS (WS+TLS, for Xray)-3
-  - JP / VLESS (WS+TLS, for Xray)
-  - LV / VLESS (WS+TLS, for Xray)
-  - LU / VLESS (WS+TLS, for Xray)
-  - US-LV / VLESS (WS+TLS, for Xray)
-  - FR / VLESS (WS+TLS, for Xray)
 rule-providers:
   IT:
     type: http
@@ -618,8 +579,8 @@ rule-providers:
     path: ./ruleset/big.mrs
     interval: 86400
 rules:
-- RULE-SET,IT,SELECTOR
-- DOMAIN-SUFFIX,githubusercontent.com,SELECTOR
-- DOMAIN-SUFFIX,github.com,SELECTOR
+- RULE-SET,IT,MAIN
+- DOMAIN-SUFFIX,githubusercontent.com,MAIN
+- DOMAIN-SUFFIX,github.com,MAIN
 - RULE-SET,adblock,REJECT
 - MATCH,DIRECT
