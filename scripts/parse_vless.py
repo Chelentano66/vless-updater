@@ -7,7 +7,6 @@ from urllib.parse import parse_qs, unquote
 TEMPLATE_PATH = "scripts/template.yaml"
 OUTPUT_DIR = "output"
 
-# 📦 Список подписок: имя → URL
 subscriptions = {
     "Sub1": "https://xeovo.com/proxy/pw/MGEpOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/",
     "Sub2": "https://xeovo.com/proxy/pw/PjYJ4UbUXGS1adWJJJ9tbL3V24eonExf/plain/config/",
@@ -18,8 +17,8 @@ subscriptions = {
 def parse_vless(url, used_names):
     if not url.startswith("vless://"):
         return None
-
     url_ = url[len("vless://"):]
+
     try:
         user_uuid, rest = url_.split("@", 1)
     except ValueError:
@@ -57,7 +56,6 @@ def parse_vless(url, used_names):
 
     query = parse_qs(query_string)
 
-    # Уникальное имя
     base_name = remark or f"{host}:{port}"
     base_name = unquote(base_name)
     name = base_name
@@ -80,10 +78,9 @@ def parse_vless(url, used_names):
 
     if proxy["network"] == "ws":
         ws_path = query.get("path", [path])[0]
-        ws_path = unquote(ws_path)
         ws_host = query.get("host", [""])[0]
         proxy["ws-opts"] = {
-            "path": ws_path,
+            "path": unquote(ws_path),
         }
         if ws_host:
             proxy["ws-opts"]["headers"] = {"Host": ws_host}
@@ -100,11 +97,10 @@ def main():
             response = requests.get(url)
             response.raise_for_status()
         except Exception as e:
-            print(f"❌ Ошибка при скачивании подписки '{name}': {e}")
+            print(f"❌ Ошибка при скачивании '{name}': {e}")
             continue
 
-        decoded = response.text
-        lines = decoded.splitlines()
+        lines = response.text.strip().splitlines()
         used_names = set()
         proxies = []
 
@@ -113,32 +109,34 @@ def main():
             if line.startswith("vless://"):
                 proxy = parse_vless(line, used_names)
                 if proxy:
-                    # 🔍 Фильтрация по ключевым словам (регион)
                     name_lower = proxy["name"].lower()
                     if any(kw in name_lower for kw in ["ua", "ukraine", "UA"]):
                         continue
                     proxies.append(proxy)
 
-        print(f"✅ Найдено VLESS-прокси: {len(proxies)}")
+        print(f"✅ Найдено прокси: {len(proxies)}")
 
         try:
             with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
                 template = yaml.safe_load(f)
         except Exception as e:
-            print(f"❌ Ошибка загрузки шаблона: {e}")
+            print(f"❌ Ошибка чтения шаблона: {e}")
             continue
 
-        template["proxies"] = proxies
         proxy_names = [p["name"] for p in proxies]
+        template["proxies"] = proxies
+
         for group in template.get("proxy-groups", []):
             if group.get("name") == "MAIN":
                 group["proxies"] = proxy_names
+            elif group.get("name") == "SELECTOR":
+                group["proxies"] = ["MAIN"] + proxy_names
 
-        output_file = f"{OUTPUT_DIR}/{name}.yaml"
-        with open(output_file, "w", encoding="utf-8") as f:
+        output_path = f"{OUTPUT_DIR}/{name}.yaml"
+        with open(output_path, "w", encoding="utf-8") as f:
             yaml.dump(template, f, allow_unicode=True, sort_keys=False)
 
-        print(f"💾 Сохранено: {output_file}")
+        print(f"💾 Сохранено: {output_path}")
 
 
 if __name__ == "__main__":
