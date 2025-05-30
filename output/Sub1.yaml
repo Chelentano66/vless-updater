@@ -587,14 +587,14 @@ rule-providers:
 script:
   block_youtube_ads:
     type: http-response
-    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|youtubei\/v1\/player\/ad_break)
+    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|api\/stats|ptracking|ads|pagead|ad_break|ad_segment|adPlayback)
     action: reject
   block_youtube_ads_req:
     type: http-request
-    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|ptracking|pagead|ads)
+    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|ptracking|pagead|ads|ad_break|ad_segment|adPlayback)
     action: reject
 rewrite:
-- regex: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|.*ad_break.*)
+- regex: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|api\/stats|ptracking|ads|pagead|ad_break|ad_segment|adPlayback)
   replacement: http://127.0.0.1
   status: 200
 mitm:
