@@ -585,31 +585,24 @@ script:
     requires-body: true
     timeout: 5
     enable: true
-    script: 'let body = JSON.parse($response.body);
-
+    script: |
+      let body = JSON.parse($response.body);
 
       if (body && body.playerAds) delete body.playerAds;
-
       if (body.adPlacements) delete body.adPlacements;
-
       if (body.adSlots) delete body.adSlots;
-
       if (body.adBreaks) delete body.adBreaks;
-
       if (body.adPods) delete body.adPods;
-
       if (body.ads) delete body.ads;
-
 
       $done({ body: JSON.stringify(body) });
 
-      '
 mitm:
   enable: true
   hostnames:
-  - '*.youtube.com'
-  - youtubei.googleapis.com
-  - googlevideo.com
+    - "*.youtube.com"
+    - "youtubei.googleapis.com"
+    - "googlevideo.com"
 rules:
 - DOMAIN-SUFFIX,youtube.com,MAIN
 - DOMAIN-SUFFIX,googlevideo.com,MAIN
