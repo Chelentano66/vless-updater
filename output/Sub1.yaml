@@ -578,10 +578,17 @@ rule-providers:
     url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
     path: ./ruleset/big.mrs
     interval: 86400
+  adblock2:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/AdBlock.yaml
+    path: ./rules/adblock.yaml
+    interval: 86400
 rules:
 - DOMAIN-SUFFIX,ua,MAIN
 - RULE-SET,IT,MAIN
 - DOMAIN-SUFFIX,githubusercontent.com,MAIN
 - DOMAIN-SUFFIX,github.com,MAIN
 - RULE-SET,adblock,REJECT
+- RULE-SET,adblock2,REJECT
 - MATCH,DIRECT
