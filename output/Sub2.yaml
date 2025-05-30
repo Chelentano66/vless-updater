@@ -281,18 +281,6 @@ proxies:
     path: /potosi
     headers:
       Host: de-global1.xeovo.net
-- name: UA / VLESS (WS+TLS, for Xray)
-  type: vless
-  server: ua-globalcdn1.xeovo.org
-  port: 443
-  uuid: 62f9058b-27aa-40e1-8ff2-d042bdfcd70b
-  tls: true
-  network: ws
-  udp: true
-  ws-opts:
-    path: /potosi
-    headers:
-      Host: ua-globalcdn1.xeovo.org
 - name: CH / VLESS (WS+TLS, for Xray)
   type: vless
   server: ch-global2.xeovo.net
@@ -552,7 +540,6 @@ proxy-groups:
   - SE / VLESS (WS+TLS, for Xray)-2
   - US-DAL / VLESS (WS+TLS, for Xray)
   - DE / VLESS (WS+TLS, for Xray)
-  - UA / VLESS (WS+TLS, for Xray)
   - CH / VLESS (WS+TLS, for Xray)
   - CH / VLESS (WS+TLS, for Xray)-2
   - NO / VLESS (WS+TLS, for Xray)
