@@ -160,5 +160,4 @@ rules:
   - DOMAIN-SUFFIX,github.com,MAIN
   - RULE-SET,adblock,REJECT
   - RULE-SET,Loyalsoldier,REJECT
-  - SCRIPT,auto_youtube_skip,REJECT
   - MATCH,DIRECT
