@@ -97,14 +97,19 @@ sniffer:
     - "+.push.apple.com"
     - "+.apple.com"
 
-proxies: []  # сюда вставим список VLESS прокси
+proxies: []  # будет заменено списком прокси из скрипта
 
 proxy-groups:
   - name: MAIN
     type: url-test
-    proxies: []  # сюда — имена прокси (name), соответствующие из списка выше
+    proxies: []  # имена прокси сюда
     url: "https://www.apple.com/library/test/success.html"
     interval: 1200
+
+  - name: SELECTOR
+    type: select
+    proxies:
+      - MAIN  # сюда и все прокси тоже
 
 rule-providers:
   IT:
@@ -123,13 +128,10 @@ rule-providers:
     url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs"
     path: ./ruleset/big.mrs
     interval: 86400
-  
+
 rules:
-  - DOMAIN-SUFFIX,youtube.com,MAIN
-  - DOMAIN-SUFFIX,googlevideo.com,MAIN
-  - DOMAIN-SUFFIX,youtubei.googleapis.com,MAIN
-  - RULE-SET,IT,MAIN
-  - DOMAIN-SUFFIX,githubusercontent.com,MAIN 
-  - DOMAIN-SUFFIX,github.com,MAIN
+  - RULE-SET,IT,SELECTOR
+  - DOMAIN-SUFFIX,githubusercontent.com,SELECTOR
+  - DOMAIN-SUFFIX,github.com,SELECTOR
   - RULE-SET,adblock,REJECT
   - MATCH,DIRECT
