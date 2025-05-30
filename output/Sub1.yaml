@@ -585,7 +585,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://community.antifilter.download/list/domains.lst
+    url: https://community.antifilter.download/list/domains.clashx
     path: ./ruleset/provider2.txt
     interval: 86400
     force-update: true
