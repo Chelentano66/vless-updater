@@ -580,7 +580,8 @@ rule-providers:
     interval: 86400
   Loyalsoldier:
     type: http
-    behavior: classical
+    behavior: domain
+    format: text
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./rules/reject.txt
     interval: 86400
