@@ -132,12 +132,12 @@ rule-providers:
     interval: 86400
 
 script:
-  - name: block_youtube_ads
+  block_youtube_ads:
     type: http-response
     match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|api\/stats|ptracking|ads|pagead|youtubei\/v1\/player\/ad_break)
     action: reject
 
-  - name: block_youtube_ads_ytbapi
+  block_youtube_ads_req:
     type: http-request
     match: ^https?:\/\/(www\.|m\.)?youtube\.com\/(get_video_info|ptracking|pagead|ads)
     action: reject
