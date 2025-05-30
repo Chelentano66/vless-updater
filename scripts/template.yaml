@@ -124,40 +124,30 @@ rule-providers:
     path: ./ruleset/big.mrs
     interval: 86400
 
-  Loyalsoldier:
-    type: http
-    behavior: classical  # т.к. это обычный текстовый список с правилами
-    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
-    path: ./rules/reject.txt
+script-providers:
+  nobyda:
+    url: https://raw.githubusercontent.com/NobyDa/Script/master/Stash/YouTubeAdBlock.yaml
     interval: 86400
+    path: ./scripts/nobyda.yaml
+    enabled: true
 
 script:
-  block_youtube_ads:
-    type: http-response
-    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|api\/stats|ptracking|ads|pagead|ad_break|ad_segment|adPlayback)
-    action: reject
-
-  block_youtube_ads_req:
-    type: http-request
-    match: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|ptracking|pagead|ads|ad_break|ad_segment|adPlayback)
-    action: reject
-
-rewrite:
-  - regex: ^https?:\/\/(www\.|m\.)?youtube\.com\/.*(get_video_info|api\/stats|ptracking|ads|pagead|ad_break|ad_segment|adPlayback)
-    replacement: http://127.0.0.1
-    status: 200
+  youtube_adblock:
+    provider: nobyda
 
 mitm:
+  enable: true
   hostnames:
     - "*.youtube.com"
     - "youtubei.googleapis.com"
     - "googlevideo.com"
     
 rules:
-  - DOMAIN-SUFFIX,ua,MAIN
+  - DOMAIN-SUFFIX,youtube.com,MAIN
+  - DOMAIN-SUFFIX,googlevideo.com,MAIN
+  - DOMAIN-SUFFIX,youtubei.googleapis.com,MAIN
   - RULE-SET,IT,MAIN
   - DOMAIN-SUFFIX,githubusercontent.com,MAIN 
   - DOMAIN-SUFFIX,github.com,MAIN
   - RULE-SET,adblock,REJECT
-  - RULE-SET,Loyalsoldier,REJECT
   - MATCH,DIRECT
