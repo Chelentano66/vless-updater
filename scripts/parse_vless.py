@@ -11,7 +11,7 @@ OUTPUT_DIR = "output"
 subscriptions = {
     "Sub1": "https://xeovo.com/proxy/pw/MGкаOQtBnz1iN6SPxCCSUOoUCefQx8Ao/plain/config/",
     "Sub2": "https://xeovo.com/proxy/pw/PjYJ4UbUXGS1adWJJJ9tbL3V24eonExf/plain/config/",
-    # Добавляй сколько нужно...
+    # Добавляй сколько нужно... И называй как угодно
 }
 
 
@@ -20,7 +20,6 @@ def parse_vless(url, used_names):
         return None
 
     url_ = url[len("vless://"):]
-
     try:
         user_uuid, rest = url_.split("@", 1)
     except ValueError:
@@ -58,7 +57,7 @@ def parse_vless(url, used_names):
 
     query = parse_qs(query_string)
 
-    # Уникальное имя прокси
+    # Уникальное имя
     base_name = remark or f"{host}:{port}"
     base_name = unquote(base_name)
     name = base_name
@@ -105,14 +104,19 @@ def main():
             continue
 
         decoded = response.text
+        lines = decoded.splitlines()
         used_names = set()
         proxies = []
 
-        for line in decoded.splitlines():
+        for line in lines:
             line = line.strip()
             if line.startswith("vless://"):
                 proxy = parse_vless(line, used_names)
                 if proxy:
+                    # 🔍 Фильтрация по ключевым словам (регион)
+                    name_lower = proxy["name"].lower()
+                    if any(kw in name_lower for kw in ["ua", "ukraine", "UA"]):
+                        continue
                     proxies.append(proxy)
 
         print(f"✅ Найдено VLESS-прокси: {len(proxies)}")
