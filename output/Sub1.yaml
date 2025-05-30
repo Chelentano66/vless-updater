@@ -562,6 +562,16 @@ proxy-groups:
   - FR / VLESS (WS+TLS, for Xray)
   url: https://www.apple.com/library/test/success.html
   interval: 1200
+  lazy: true
+- name: TELEGRAM
+  type: fallback
+  proxies:
+  - DIRECT
+  - MAIN
+  url: https://t.me/iv
+  interval: 10000
+  timeout: 4000
+  lazy: true
 rule-providers:
   IT:
     type: http
@@ -571,6 +581,22 @@ rule-providers:
     path: ./ruleset/it.txt
     interval: 86400
     force-update: true
+  AntiF:
+    type: http
+    behavior: classical
+    format: text
+    url: https://community.antifilter.download/list/domains.lst
+    path: ./ruleset/provider2.txt
+    interval: 86400
+    force-update: true
+    fallback: true
+  telegram:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://core.telegram.org/resources/cidr.txt
+    path: ./ruleset/telegram.txt
+    interval: 300400
   adblock:
     type: http
     behavior: domain
@@ -582,5 +608,9 @@ rules:
 - RULE-SET,IT,MAIN
 - DOMAIN-SUFFIX,githubusercontent.com,MAIN
 - DOMAIN-SUFFIX,github.com,MAIN
+- DOMAIN-SUFFIX,antifilter.download,MAIN
 - RULE-SET,adblock,REJECT
+- RULE-SET,telegram,TELEGRAM
+- DOMAIN-KEYWORD,t.me,TELEGRAM
+- DOMAIN-SUFFIX,telegram.org,TELEGRAM
 - MATCH,DIRECT
