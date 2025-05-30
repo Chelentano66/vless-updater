@@ -124,16 +124,24 @@ rule-providers:
     path: ./ruleset/big.mrs
     interval: 86400
 
-script-providers:
-  nobyda:
-    url: https://raw.githubusercontent.com/NobyDa/Script/master/Stash/YouTubeAdBlock.yaml
-    interval: 86400
-    path: ./scripts/nobyda.yaml
-    enabled: true
-
 script:
   youtube_adblock:
-    provider: nobyda
+    type: http-response
+    match: ^https:\/\/(www\.)?youtubei\.googleapis\.com\/youtubei\/v1\/(player|next)
+    requires-body: true
+    timeout: 5
+    enable: true
+    script: |
+      let body = JSON.parse($response.body);
+
+      if (body && body.playerAds) delete body.playerAds;
+      if (body.adPlacements) delete body.adPlacements;
+      if (body.adSlots) delete body.adSlots;
+      if (body.adBreaks) delete body.adBreaks;
+      if (body.adPods) delete body.adPods;
+      if (body.ads) delete body.ads;
+
+      $done({ body: JSON.stringify(body) });
 
 mitm:
   enable: true
