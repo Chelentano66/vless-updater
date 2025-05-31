@@ -2,7 +2,7 @@ name: Update Configs
 
 on:
   schedule:
-    - cron: "0 5 * * *"  # каждый день в 05:00 UTC
+    - cron: "0 5,15 * * *" # Запуск в 05:00 UTC и 15:00 UTC каждый день
   workflow_dispatch:      # запуск вручную
 
 jobs:
