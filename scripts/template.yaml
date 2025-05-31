@@ -157,8 +157,8 @@ rules:
   - RULE-SET,IT,MAIN
   - DOMAIN-SUFFIX,githubusercontent.com,MAIN 
   - DOMAIN-SUFFIX,github.com,MAIN
-  - DOMAIN-SUFFIX,antifilter.download,MAIN
   - RULE-SET,adblock,REJECT
+  - DOMAIN-SUFFIX,antifilter.download,MAIN
   - RULE-SET,telegram,TELEGRAM
   - DOMAIN-KEYWORD,t.me,TELEGRAM
   - DOMAIN-SUFFIX,telegram.org,TELEGRAM
